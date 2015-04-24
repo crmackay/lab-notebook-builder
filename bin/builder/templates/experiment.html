@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block body %}
+<!--experiment template-->
+
+<!--Intro-->
+
+{{ exp.parent}} : {{ exp.name }}
+
+
+{% if exp.intro %}
+	{{ exp.intro.content }}
+{% endif %}
+<!--Entries-->
+
+<div>
+	{% for entry in exp.entries %}
+		<hr>
+		<div class="dated-entry">
+			<div class="date">
+				{{ entry.date }}
+			</div>
+			<div class="content">
+				{{ entry.content }}
+			</div>
+		</div>
+	{% endfor %}
+</div>
+<hr>
+<!--Conclusions-->
+{% if exp.conclusions %}
+	{{ exp.conclusions.content }}
+{% endif %}
+
+{% if exp.todos %}
+	{{ exp.todos.content }}
+{% endif %}
+	
+<!-- INSERT DATA files, in order-->
+
+{% endblock %}

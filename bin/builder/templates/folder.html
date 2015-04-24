@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+<!--experiment template-->
+
+<!--Intro-->
+
+{{ fldr.name }}
+<br>
+{% for file in fldr.files %}
+	<a href="{{ file.uri }}">{{ file.name }}</a></br>
+	{% if file.content %}
+		{{ file.content }}
+	{% endif %}
+{% endfor %}
+
+{% if fldr.intro %}
+	{{ fldr.intro.content }}
+{% endif %}
+<!--Conclusions-->
+{% if fldr.conclusions %}
+	{{ fldr.conclusions.content }}
+{% endif %}
+
+{% if fldr.todos %}
+	{{ fldr.todos.content }}
+{% endif %}
+
+	
+<!-- INSERT DATA files, in order-->	
+
+{% endblock %}
